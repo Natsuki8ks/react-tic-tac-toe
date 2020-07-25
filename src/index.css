@@ -5,9 +5,67 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: rgb(245, 239, 239);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.App {
+  background: #fff;
+  width: 500px;
+  height: auto;
+  margin: 40px auto;
+  border-radius: 6px;
+}
+
+h1 {
+  color: rgb(63, 48, 48);
+  border-bottom: 2px solid rgb(226, 182, 182);
+}
+
+input {
+  margin-left: 40px;
+  height: 40px;
+  width: 250px;
+  border-radius: 4px;
+  border: 1px solid rgb(146, 117, 117);
+  
+}
+
+ul {
+  flex-wrap: nowrap;
+}
+
+li {
+  list-style: none;
+  background: rgb(240, 230, 230);
+  margin: 10px 40px 10px 0;
+}
+
+
+button{
+  border-radius: 10px;
+  user-select: none;
+  border: none;
+}
+
+.add {
+  background: rgb(206, 165, 165);
+  height: 40px;
+  width: 50px;
+  margin: 0 15px;
+}
+
+.del {
+  background: rgb(174, 192, 230);
+  height: 25px;
+  width: 40px;
+  /* margin: 5px 20px; */
+  display: block;
+  margin: 0 10px 10px auto;
 }
