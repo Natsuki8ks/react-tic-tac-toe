@@ -33,5 +33,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://natsuki8ks.github.io/react-todolist/"
+  "homepage": "https://natsuki8ks.github.io/react-todolist/",
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
 }
