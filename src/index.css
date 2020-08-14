@@ -15,7 +15,7 @@ code {
 }
 
 
-.App {
+.TodoApp {
   background: #fff;
   width: 500px;
   height: 600px;
@@ -68,4 +68,10 @@ button{
   /* margin: 5px 20px; */
   display: block;
   margin: 0 10px 10px auto;
+  float: right;
+}
+
+
+input {
+  
 }
