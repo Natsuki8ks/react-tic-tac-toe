@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
 
 
-class App extends Component {
-  constructor(props){
+class TodoApp extends Component {
+  constructor(props) {
     super(props);
-    this.state={
-      newItem:"",
-      list:[]
+
+    this.state = {
+      newItem: "",
+      list: []
     }
   }
 
-
-  updateInput(key,value){
+  updateInput(key, value) {
     this.setState({
       [key]: value
     });
   }
 
   addItem() {
-    const newItem= {
+    if (this.state.item.trim() === '') {
+      return; 
+    }
+
+    const newItem = {
       id: 1 + Math.random(),
       value: this.state.newItem.slice()
     };
 
     //copy of current list
     const list = [...this.state.list];
-
-    //add new item to list
     list.push(newItem);
-    
-    //reset
+
+    // reset
     this.setState({
       list,
       newItem: ""
@@ -40,45 +42,47 @@ class App extends Component {
     const list = [...this.state.list];
 
     const updatedList = list.filter(item => item.id !== id);
-    this.setState({list: updatedList})
+    this.setState({ list: updatedList })
   }
 
-  render(){
-  return (
-    <div className="App">
-      <h1>Add an Item...</h1>
-      <br />
-        {/* <form> */}
-          <input 
+  render() {
+    return (
+      <div className="TodoApp">
+        <h1>Add an Item...</h1>
+        <br />
+        <form>
+          <input
             type="text"
             placeholder="Type list here.."
             value={this.state.newItem}
             onChange={e => this.updateInput("newItem", e.target.value)}
           />
-          <button class="add"
+          <button className="add"
             onClick={() => this.addItem()}
-            >
+          >
             Add
           </button>
-        {/* </form> */}
-      <br />
-      <ul>
-        {this.state.list.map(item => {
-          return(
-            <li key={item.id}>
-              ✔&nbsp;{item.value}
-              <button class="del"
-                onClick={() => this.deleteItem(item.id)}
-              >
-                del
+        </form>
+        <br />
+        <ul>
+          {this.state.list.map(item => {
+            return (
+              <li key={item.id}>
+                {/* <input type="checkbox" /> */}
+                {item.value}
+
+                <button className="del"
+                  onClick={() => this.deleteItem(item.id)}
+                >
+                  del
               </button>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  );
- }
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default TodoApp;
