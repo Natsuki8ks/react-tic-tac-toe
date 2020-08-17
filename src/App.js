@@ -18,6 +18,10 @@ class TodoApp extends Component {
   }
 
   addItem() {
+    if (this.state.item.trim() === '') {
+      return; 
+    }
+
     const newItem = {
       id: 1 + Math.random(),
       value: this.state.newItem.slice()
@@ -25,7 +29,6 @@ class TodoApp extends Component {
 
     //copy of current list
     const list = [...this.state.list];
-    // const list = this.state.list.slice();
     list.push(newItem);
 
     // reset
@@ -54,7 +57,7 @@ class TodoApp extends Component {
             value={this.state.newItem}
             onChange={e => this.updateInput("newItem", e.target.value)}
           />
-          <button class="add"
+          <button className="add"
             onClick={() => this.addItem()}
           >
             Add
@@ -65,11 +68,10 @@ class TodoApp extends Component {
           {this.state.list.map(item => {
             return (
               <li key={item.id}>
-                {/* ✔ */}
-              &nbsp;{item.value}
-                {/* <input type="checkbox" value="">{item.value}</input> */}
+                {/* <input type="checkbox" /> */}
+                {item.value}
 
-                <button class="del"
+                <button className="del"
                   onClick={() => this.deleteItem(item.id)}
                 >
                   del
