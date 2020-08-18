@@ -6,6 +6,7 @@ class TodoApp extends Component {
     super(props);
 
     this.state = {
+      id: 1,
       newItem: "",
       list: []
     }
@@ -17,22 +18,21 @@ class TodoApp extends Component {
     });
   }
 
-  addItem() {
-    if (this.state.item.trim() === '') {
-      return; 
+  addItem = () => {
+    if (this.state.newItem.trim() === '') {
+      return;
     }
 
-    const newItem = {
-      id: 1 + Math.random(),
-      value: this.state.newItem.slice()
+    const id = this.state.id + 1;
+    const item = {
+      id,
+      value: this.state.newItem
     };
 
-    //copy of current list
-    const list = [...this.state.list];
-    list.push(newItem);
+    const list = [...this.state.list, item];
 
-    // reset
     this.setState({
+      id,
       list,
       newItem: ""
     });
@@ -50,19 +50,17 @@ class TodoApp extends Component {
       <div className="TodoApp">
         <h1>Add an Item...</h1>
         <br />
-        <form>
-          <input
-            type="text"
-            placeholder="Type list here.."
-            value={this.state.newItem}
-            onChange={e => this.updateInput("newItem", e.target.value)}
-          />
-          <button className="add"
-            onClick={() => this.addItem()}
-          >
-            Add
+        <input
+          type="text"
+          placeholder="Type list here.."
+          value={this.state.newItem}
+          onChange={e => this.updateInput("newItem", e.target.value)}
+        />
+        <button className="add"
+          onClick={this.addItem}
+        >
+          Add
           </button>
-        </form>
         <br />
         <ul>
           {this.state.list.map(item => {
@@ -70,12 +68,11 @@ class TodoApp extends Component {
               <li key={item.id}>
                 {/* <input type="checkbox" /> */}
                 {item.value}
-
                 <button className="del"
                   onClick={() => this.deleteItem(item.id)}
                 >
                   del
-              </button>
+               </button>
               </li>
             )
           })}
