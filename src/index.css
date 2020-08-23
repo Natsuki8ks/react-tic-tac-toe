@@ -26,25 +26,29 @@ code {
 h1 {
   color: rgb(63, 48, 48);
   border-bottom: 2px solid rgb(226, 182, 182);
+  padding: 10px 0 0 20px;
 }
 
 input {
-  margin-left: 40px;
-  height: 40px;
+  margin-left: 20%;
+  height: 50px;
   width: 250px;
   border-radius: 4px;
   border: 1px solid rgb(146, 117, 117);
-  
+  text-align: left;
 }
 
 ul {
   flex-wrap: nowrap;
+  /* display: block; */
 }
 
 li {
   list-style: none;
   background: rgb(240, 230, 230);
   margin: 10px 40px 10px 0;
+  padding: 15px 0  10px 0;
+  display: flex;
 }
 
 
@@ -59,6 +63,7 @@ button{
   height: 40px;
   width: 50px;
   margin: 0 15px;
+
 }
 
 .del {
@@ -70,3 +75,8 @@ button{
   margin: 0 10px 10px auto;
 }
 
+input.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
