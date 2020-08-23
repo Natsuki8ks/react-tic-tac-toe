@@ -19,9 +19,9 @@ class TodoApp extends Component {
   }
 
   addItem = () => {
-    if (this.state.newItem.trim() === '') {
-      return;
-    }
+    // if (this.state.newItem.trim() === '') {
+    //   return;
+    // }
 
     const id = this.state.id + 1;
     const item = {
@@ -40,12 +40,18 @@ class TodoApp extends Component {
 
   deleteItem(id) {
     const list = [...this.state.list];
-
     const updatedList = list.filter(item => item.id !== id);
+
     this.setState({ list: updatedList })
   }
 
+
+  checkTodo() {
+
+  }
+
   render() {
+    debugger
     return (
       <div className="TodoApp">
         <h1>Add an Item...</h1>
@@ -56,23 +62,26 @@ class TodoApp extends Component {
           value={this.state.newItem}
           onChange={e => this.updateInput("newItem", e.target.value)}
         />
-        <button className="add"
+        <button 
+          className="add"
+          disabled={this.state.newItem.trim().lemgth === 0}
           onClick={this.addItem}
         >
           Add
-          </button>
+        </button>
         <br />
         <ul>
           {this.state.list.map(item => {
             return (
               <li key={item.id}>
-                {/* <input type="checkbox" /> */}
+                <input type="checkbox" className="checkbox" />
                 {item.value}
                 <button className="del"
                   onClick={() => this.deleteItem(item.id)}
                 >
-                  del
+                  X
                </button>
+              
               </li>
             )
           })}
