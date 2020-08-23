@@ -79,7 +79,7 @@ class TodoApp extends Component {
                 <button className="del"
                   onClick={() => this.deleteItem(item.id)}
                 >
-                  del
+                  X
                </button>
               
               </li>
