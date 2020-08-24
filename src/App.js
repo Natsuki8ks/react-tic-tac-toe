@@ -33,8 +33,8 @@ class TodoApp extends Component {
 
     this.setState({
       id,
-      list,
-      newItem: ""
+      newItem: "",
+      list
     });
   }
 
@@ -64,7 +64,7 @@ class TodoApp extends Component {
         />
         <button 
           className="add"
-          disabled={this.state.newItem.trim().lemgth === 0}
+          disabled={this.state.newItem.trim().length === 0}
           onClick={this.addItem}
         >
           Add
