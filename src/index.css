@@ -52,24 +52,38 @@ li {
 }
 
 
-button{
+button {
   border-radius: 10px;
   user-select: none;
   border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .9;
 }
 
 .add {
   background: rgb(206, 165, 165);
-  height: 40px;
+  height: 45px;
   width: 50px;
   margin: 0 15px;
-
+  color: rgb(94, 77, 77);
+  font-weight: 700;
 }
 
 .del {
   background: rgb(174, 192, 230);
   height: 25px;
-  width: 40px;
+  width: 25px;
+  display: block;
+  margin: 0 10px 10px 0;
+}
+
+.edit {
+  background: rgb(163, 214, 230);
+  height: 25px;
+  width: 25px;
   display: block;
   margin: 0 10px 10px auto;
 }
@@ -78,4 +92,15 @@ input.checkbox {
   width: 20px;
   height: 20px;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.fa {
+  color: #fff;
+}
+
+
+.isDone {
+  text-decoration: line-through;
+  color: rgb(100, 98, 98);
 }
